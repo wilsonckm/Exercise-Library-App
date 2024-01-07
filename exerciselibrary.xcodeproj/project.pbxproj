@@ -21,6 +21,8 @@
 		D1AC096A2B479EF7000753E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1AC096D2B479EF7000753E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D1AC09752B48A66B000753E2 /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		D1AC09772B4A470A000753E2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D1AC09782B4A47CD000753E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,8 @@
 		D1AC09652B479EF6000753E2 /* exerciselibrary */ = {
 			isa = PBXGroup;
 			children = (
+				D1AC09782B4A47CD000753E2 /* Info.plist */,
+				D1AC09772B4A470A000753E2 /* Config.xcconfig */,
 				D1AC09682B479EF6000753E2 /* ContentView.swift */,
 				D1AC09662B479EF6000753E2 /* exerciselibraryApp.swift */,
 				D1AC09742B48A5F5000753E2 /* Model */,
@@ -159,6 +163,7 @@
 /* Begin XCBuildConfiguration section */
 		D1AC096F2B479EF7000753E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1AC09772B4A470A000753E2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -222,6 +227,7 @@
 		};
 		D1AC09702B479EF7000753E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1AC09772B4A470A000753E2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -287,6 +293,7 @@
 				DEVELOPMENT_TEAM = S643LW5WV7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = exerciselibrary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,6 +323,7 @@
 				DEVELOPMENT_TEAM = S643LW5WV7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = exerciselibrary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

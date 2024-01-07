@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  exerciselibrary
+//
+//  Created by Wilson Chan on 1/6/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY= e4c4d9ab55mshc052c49366789f6p1223c1jsnbce9fa761eb6
+

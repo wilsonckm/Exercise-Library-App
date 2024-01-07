@@ -25,13 +25,14 @@ struct ContentView: View {
     
     func apiCall() async {
         // Gets URL + Optional binding to handle URL
+        let apiKey = Bundle.main.infoDictionary?["API_KEY"] as String
         if let url = URL(string: "https://exercisedb.p.rapidapi.com/exercises?limit=10") {
             
             //URL request with multiple headers: use setValue rather than addValue! or use .allHTTPHeaderFields
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.allHTTPHeaderFields = [
-                   "X-RapidAPI-Key": "API-KEY",
+                "X-RapidAPI-Key": "\(apiKey)",
                    "X-RapidAPI-Host": "exercisedb.p.rapidapi.com"
                ]
 
