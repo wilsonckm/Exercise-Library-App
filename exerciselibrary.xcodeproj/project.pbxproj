@@ -12,6 +12,7 @@
 		D1AC096B2B479EF7000753E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1AC096A2B479EF7000753E2 /* Assets.xcassets */; };
 		D1AC096E2B479EF7000753E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1AC096D2B479EF7000753E2 /* Preview Assets.xcassets */; };
 		D1AC09762B48A66B000753E2 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AC09752B48A66B000753E2 /* Exercises.swift */; };
+		D1B130372B4A4D2900E87AAB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B130362B4A4D2900E87AAB /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		D1AC09752B48A66B000753E2 /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 		D1AC09772B4A470A000753E2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		D1AC09782B4A47CD000753E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D1B130362B4A4D2900E87AAB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				D1AC09772B4A470A000753E2 /* Config.xcconfig */,
 				D1AC09682B479EF6000753E2 /* ContentView.swift */,
 				D1AC09662B479EF6000753E2 /* exerciselibraryApp.swift */,
+				D1B130362B4A4D2900E87AAB /* DataService.swift */,
 				D1AC09742B48A5F5000753E2 /* Model */,
 				D1AC096A2B479EF7000753E2 /* Assets.xcassets */,
 				D1AC096C2B479EF7000753E2 /* Preview Content */,
@@ -155,6 +158,7 @@
 				D1AC09692B479EF6000753E2 /* ContentView.swift in Sources */,
 				D1AC09762B48A66B000753E2 /* Exercises.swift in Sources */,
 				D1AC09672B479EF6000753E2 /* exerciselibraryApp.swift in Sources */,
+				D1B130372B4A4D2900E87AAB /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
