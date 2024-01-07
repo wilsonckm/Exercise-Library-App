@@ -12,9 +12,10 @@ struct Exercise: Decodable, Identifiable {
     var equipment: String?
     var gifUrl: String?
     var id: String?
+    var name: String?
     var target: String?
-    var secondaryMuscles = [String]()
-    var instructions = [String]()
+    var secondaryMuscles: [String]?
+    var instructions: [String]?
 }
 
 struct ExerciseSearch: Decodable {

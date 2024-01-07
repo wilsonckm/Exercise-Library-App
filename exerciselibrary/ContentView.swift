@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var exercises = [Exercise]()
     var service = DataService()
     
     var body: some View {
@@ -17,11 +18,17 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-            Text("")
+            if exercises.isEmpty {
+                ProgressView("Loading...")
+            } else {
+                List(exercises) { exercise in
+                    Text(exercise.name ?? "No Name Found")
+                }
+            }
         }
         .padding()
         .task {
-            await service.exerciseSearch()
+            exercises = await service.exerciseSearch()
         }
         
     }

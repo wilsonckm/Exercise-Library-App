@@ -15,6 +15,7 @@ struct DataService {
         
         //Checks if API key exists. Guard is used here to handle missing/invalid api key.
         guard apiKey != nil else {
+            //if no api key will return empty exercise array
             return [Exercise]()
         }
         
@@ -34,14 +35,16 @@ struct DataService {
                 if let httpResponse = response as? HTTPURLResponse {
                     //Checks of status code is between 200 and 299 (Successful response)
                     if (200..<300).contains(httpResponse.statusCode) {
-                        print("The status code is: \(httpResponse.statusCode)")
                         //Decode the JSON data received from the API
                         let decoder = JSONDecoder()
                         do {
                             let result = try decoder.decode([Exercise].self, from: data)
+                            
+                            //Make sure you return the result or it defaults to returning an empty array!
+                            return result
                         }
                         catch {
-                            //catches possible decoding error.
+                            //Catches possible decoding error.
                             print("Decoding error: \(error)")
                         }
                     } else {
