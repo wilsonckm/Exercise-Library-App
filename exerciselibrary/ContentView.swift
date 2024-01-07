@@ -23,16 +23,22 @@ struct ContentView: View {
         }
     }
     
-    func apiCall() async {
+    func apiCall() async -> [Exercise] {
         // Gets URL + Optional binding to handle URL
-        let apiKey = Bundle.main.infoDictionary?["API_KEY"] as String
+        let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
+        
+        guard apiKey != nil else {
+            return [Exercise]()
+        }
+        
+        
         if let url = URL(string: "https://exercisedb.p.rapidapi.com/exercises?limit=10") {
             
             //URL request with multiple headers: use setValue rather than addValue! or use .allHTTPHeaderFields
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.allHTTPHeaderFields = [
-                "X-RapidAPI-Key": "\(apiKey)",
+                "X-RapidAPI-Key": "\(apiKey!)",
                    "X-RapidAPI-Host": "exercisedb.p.rapidapi.com"
                ]
 
@@ -42,8 +48,7 @@ struct ContentView: View {
                 
                 do {
                     let result = try decoder.decode([Exercise].self, from: data)
-                    print(result)
-                    
+        
                 }
                 catch {
                     print(error)
@@ -53,6 +58,7 @@ struct ContentView: View {
                 print(error)
             }
         }
+        return [Exercise]()
     }
 }
 
