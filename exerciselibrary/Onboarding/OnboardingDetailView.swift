@@ -17,15 +17,24 @@ struct OnboardingDetailView: View {
     var body: some View {
         ZStack {
             Color(bgColor)
-            VStack {
+            VStack (spacing: 0) {
+                
+                Spacer()
+                Spacer()
+                
                 Image("onboarding")
+                    .padding(.bottom, 32)
                 Text(headline)
                     .bold()
                     .font(.system(size: 22))
                     .foregroundStyle(.white)
                 Text(subtitle)
                     .foregroundStyle(.white)
+                    .padding(.bottom, 64)
+                    .padding(.horizontal, 16)
+                
                 Spacer()
+                
                 Button {
                     buttonAction()
                 } label: {
@@ -39,6 +48,7 @@ struct OnboardingDetailView: View {
                             .foregroundStyle(.black)
                     }
                 }
+                .padding(.bottom, 118)
             }
         }
         .ignoresSafeArea()

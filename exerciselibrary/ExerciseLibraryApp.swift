@@ -10,13 +10,14 @@ import SwiftUI
 @main
 struct ExerciseLibraryApp: App {
     
-    @AppStorage("Onboarding") var isOnboardingCompleted: Bool = false
+    @AppStorage("Onboarding") var needsOnboarding: Bool = true
     
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .fullScreenCover(isPresented: $isOnboardingCompleted) {
-                    isOnboardingCompleted = false
+            //Will present modal of onboardingView if needsOnboarding is true.
+                .fullScreenCover(isPresented: $needsOnboarding) {
+                    needsOnboarding = false
                 } content: {
                     OnboardingView()
                 }
