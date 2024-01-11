@@ -8,8 +8,75 @@
 import SwiftUI
 
 struct ExerciseDetailView: View {
+    
+    var exercise: Exercise?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+//            GifImage(exercise?.gifUrl ?? "Image URL not found")
+            
+            if let url = exercise?.gifUrl {
+                GifImage(url)
+            } else {
+                Image("detail-placeholder-image")
+            }
+        }
+        
+        ScrollView {
+            VStack (alignment: .leading) {
+                //AsyncImage to display image --> However will not display gif! ALSO --> GifImage moved above scrollview. Ran into a bug where it would display behind the Scrollview/Vstack and would be covered!
+                
+                
+//                if let url = exercise?.gifUrl {
+//                    AsyncImage(url: URL(string: "\(url)"))
+//                } else {
+//                    Image("detail-placeholder-image")
+//                }
+                
+                HStack {
+                    Text(exercise?.name?.capitalized ?? "Exercise Title")
+                        .bold()
+                        .font(.title)
+                    Spacer()
+                    Image(systemName: "heart")
+                }
+                Text("Primary Muscle: ")
+                    .bold() + Text(exercise?.target?.capitalized ?? "Target Muscle")
+                
+                //Lists out secondary muscles from the array, capitalizes first letter, then joins them with a separator.
+                
+                Text("Secondary Muscles: ")
+                    .bold() + Text(exercise?.secondaryMuscles?.map { $0.capitalized }.joined(separator: ", ") ?? "No secondary muscle")
+                
+                Text("Equipment: ")
+                    .bold() + Text(exercise?.equipment?.capitalized ?? "No equipment needed") + Text("\n")
+                
+                //Iterates through the instructions array and numbers them
+                if let exercise = exercise {
+                    let numberedInstructions = exercise.instructions?.enumerated().map {index, instruction in
+                        "\(index + 1). \(instruction)"
+                    }.joined(separator: "\n \n") ?? "No exercise instructions"
+                    
+                    Text("\(numberedInstructions)")
+                }
+            }
+            .padding()
+            
+            VStack {
+                Button(action: {
+                    // code to add exercise to workout --> similar to adding songs to a playlist
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.blue)
+                            .frame(height: 50)
+                            .padding()
+                        Text("Add Exercise")
+                            .foregroundStyle(.white)
+                    }            })
+                
+            }
+        }
     }
 }
 

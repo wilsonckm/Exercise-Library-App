@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ListView: View {
     @State var exercises = [Exercise]()
-//    var service = DataService()
+    
+    var service = DataService()
+    @State var selectedExercise: Exercise?
     
     var body: some View {
         VStack {
@@ -47,17 +49,23 @@ struct ListView: View {
                                     .font(Font.system(size: 16))
                                     .foregroundStyle(Color(red: 67/255, green: 71/255, blue: 76/255))
                             }
+                            }
+                        .onTapGesture {
+                            selectedExercise = e
+                            
+                        }
                         }
                         
                     }
-                    
-                }
                 .listStyle(.plain)
             }
         }
         .padding()
         .task {
-//            exercises = await service.exerciseSearch()
+            exercises = await service.exerciseSearch()
+        }
+        .sheet(item: $selectedExercise) { item in
+            ExerciseDetailView(exercise: item)
         }
         
     }
