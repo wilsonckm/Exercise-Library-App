@@ -28,9 +28,33 @@ enum bodyPart: String, CaseIterable, Identifiable {
          shoulders = "Shoulders",
          upperArms = "Upper Arms",
          upperLegs = "Upper Legs",
-         waist = "Waist"
+         waist = "Waist",
+         none = "None"
     var id: Self { self }
 }
 
+enum target: String, CaseIterable, Identifiable {
+    case abductors = "Abductors",
+         abs = "Abs",
+         adductors = "Adductors",
+         biceps = "Biceps",
+         calves = "Calves",
+         cardiovascularSystem = "Cardiovascular System",
+         delts = "Delts",
+         forearms = "Forearms",
+         glutes = "Glutes",
+         hamstrings = "Hamstrings",
+         lats = "Lats",
+         levatorScapulae = "Levator Scapulae",
+         pectorals = "Pectorals",
+         quads = "Quads",
+         serratusAnterior = "Serratus Anterior",
+         spine = "Spine",
+         traps = "Traps",
+         triceps = "Triceps",
+         upperBack = "Upper Back",
+         none = "None"
 
+    var id: Self { self }
+}
 

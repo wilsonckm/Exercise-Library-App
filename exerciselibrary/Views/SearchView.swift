@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State var exercises = [Exercise]()
-    @State var query = ""
-    @State var isLoading = false
-    @State var searchByTab = 0
-    @State var bodyPartQuery: bodyPart = .back
-    @State var selectedExercise: Exercise?
+    @State private var exercises = [Exercise]()
+    @State private var query = ""
+    @State private var isLoading = false
+    @State private var searchByTab = 0
+    @State private var targetQuery: target = .none
+    @State private var bodyPartQuery: bodyPart = .none
+    @State private var selectedExercise: Exercise?
     var service = DataService()
     
     var body: some View {
@@ -27,12 +28,14 @@ struct SearchView: View {
             Picker("", selection: $searchByTab) {
                 Text("Name")
                     .tag(0)
-                Text("Target")
+                Text("Target Muscle")
                     .tag(1)
+                Text("Body Part")
+                    .tag(2)
             }
             .pickerStyle(SegmentedPickerStyle())
-            .padding(.bottom)
             
+            //Query by name
             if searchByTab == 0 {
                 VStack {
                     HStack {
@@ -41,37 +44,57 @@ struct SearchView: View {
                         Button("Search") {
                             Task {
                                 isLoading = true
-                                exercises = await service.exerciseSearch(query: query, bodyPart: "")
+                                exercises = await service.exerciseSearch(query: query, bodyPart: "", target: "")
                                 isLoading = false
                             }
                         }
                         .buttonStyle(.bordered)
                         .tint(.black)
                     }
-//                    Spacer()
                 }
+            //Query by Target
             } else if searchByTab == 1 {
-                
-//                HStack {
-                    List {
-                        Picker("Target Muscles", selection: $bodyPartQuery) {
-                            ForEach(bodyPart.allCases) { item in
-                                Text(item.rawValue).tag(item)
-                            }
+                HStack {
+                    Text("Target Muscle")
+                        .bold()
+                    Spacer()
+                    Picker("Target Muscle", selection: $targetQuery) {
+                        ForEach(target.allCases) { item in
+                            Text(item.rawValue).tag(item)
                         }
-                            .onChange(of: bodyPartQuery) { oldValue, newValue in
-                                Task {
-                                    isLoading = true
-                                    exercises = await service.exerciseSearch(query: "", bodyPart: bodyPartQuery.rawValue)
-                                    isLoading = false
-                                }
-                        }
-                        
                     }
-                    .listStyle(.plain)
-//                }
-                Spacer()
+                    .tint(.gray)
+                    .onChange(of: targetQuery) { oldValue, newValue in
+                        Task {
+                            isLoading = true
+                            exercises = await service.exerciseSearch(query: "", bodyPart: "", target: targetQuery.rawValue)
+                            isLoading = false
+                        }
+                    }
+                }
+                
+            //Query by body part
+            } else if searchByTab == 2 {
+                HStack {
+                    Text("Body Part")
+                        .bold()
+                    Spacer()
+                    Picker("Body Part", selection: $bodyPartQuery) {
+                        ForEach(bodyPart.allCases) { item in
+                            Text(item.rawValue).tag(item)
+                        }
+                    }
+                    .tint(.gray)
+                    .onChange(of: bodyPartQuery) { oldValue, newValue in
+                        Task {
+                            isLoading = true
+                            exercises = await service.exerciseSearch(query: "", bodyPart: bodyPartQuery.rawValue, target: "")
+                            isLoading = false
+                        }
+                    }
+                }
             }
+                        
             
             if exercises.isEmpty && isLoading == false {
                 VStack {

@@ -11,7 +11,7 @@ struct DataService {
     
 //    var query: String = ""
 
-    func exerciseSearch(query: String?, bodyPart: String?) async -> [Exercise] {
+    func exerciseSearch(query: String?, bodyPart: String?, target: String?) async -> [Exercise] {
         // Gets API key as an optional string from the infoplist
         let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
         
@@ -35,11 +35,16 @@ struct DataService {
         }
         
         //Body Part Query
-        if let bodyPart = bodyPart, !bodyPart.isEmpty {
+        if let bodyPart = bodyPart, !bodyPart.isEmpty, bodyPart.lowercased() != "none" {
             let urlEncodedQuery = bodyPart.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             exerciseNameEndpoint = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/\(urlEncodedQuery!)?limit=10"
         }
         
+        //Target Muscle Query
+        if let target = target, !target.isEmpty, target.lowercased() != "none" {
+            let urlEncodedQuery = target.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            exerciseNameEndpoint = "https://exercisedb.p.rapidapi.com/exercises/target/\(urlEncodedQuery!)?limit=10"
+        }
 
         
         // Gets URL + Optional binding to handle URL
