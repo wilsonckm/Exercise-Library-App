@@ -13,8 +13,6 @@ struct ExerciseDetailView: View {
     
     var body: some View {
         VStack {
-//            GifImage(exercise?.gifUrl ?? "Image URL not found")
-            
             if let url = exercise?.gifUrl {
                 GifImage(url)
             } else {

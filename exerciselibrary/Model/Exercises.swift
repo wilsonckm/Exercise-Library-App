@@ -18,8 +18,19 @@ struct Exercise: Decodable, Identifiable {
     var instructions: [String]?
 }
 
-struct ExerciseSearch: Decodable {
-    var exercises = [Exercise]()
+enum bodyPart: String, CaseIterable, Identifiable {
+    case back = "Back",
+         cardio = "Cardio",
+         chest = "Chest",
+         lowerArms = "Lower Arms",
+         lowerLegs = "Lower Legs",
+         neck = "Neck",
+         shoulders = "Shoulders",
+         upperArms = "Upper Arms",
+         upperLegs = "Upper Legs",
+         waist = "Waist"
+    var id: Self { self }
 }
+
 
 

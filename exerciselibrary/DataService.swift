@@ -8,8 +8,10 @@
 import Foundation
 
 struct DataService {
+    
+//    var query: String = ""
 
-    func exerciseSearch() async -> [Exercise] {
+    func exerciseSearch(query: String?, bodyPart: String?) async -> [Exercise] {
         // Gets API key as an optional string from the infoplist
         let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
         
@@ -19,8 +21,29 @@ struct DataService {
             return [Exercise]()
         }
         
+        
+        
+        //Declares endpoint as empty string --> prevents accidental API call
+        var exerciseNameEndpoint = ""
+        
+        //Exercise name query
+        if let query = query, !query.isEmpty {
+            let urlEncodedQuery = query.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            exerciseNameEndpoint = "https://exercisedb.p.rapidapi.com/exercises/name/\(urlEncodedQuery!)?limit=10"
+            print(exerciseNameEndpoint)
+
+        }
+        
+        //Body Part Query
+        if let bodyPart = bodyPart, !bodyPart.isEmpty {
+            let urlEncodedQuery = bodyPart.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            exerciseNameEndpoint = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/\(urlEncodedQuery!)?limit=10"
+        }
+        
+
+        
         // Gets URL + Optional binding to handle URL
-        if let url = URL(string: "https://exercisedb.p.rapidapi.com/exercises?limit=10") {
+        if let url = URL(string: exerciseNameEndpoint) {
             
             //URL request with multiple headers: use setValue rather than addValue! or use .allHTTPHeaderFields
             var request = URLRequest(url: url)

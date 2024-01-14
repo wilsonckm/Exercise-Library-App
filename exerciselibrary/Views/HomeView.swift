@@ -17,7 +17,7 @@ struct HomeView: View {
                         Text("Workouts")
                     }
                 }
-            ListView()
+            SearchView()
                 .tabItem {
                     VStack {
                         Image(systemName: "menucard")
