@@ -79,5 +79,13 @@ struct ExerciseDetailView: View {
 }
 
 #Preview {
-    ExerciseDetailView()
+    ExerciseDetailView(exercise: Exercise(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/whon-vU7j3m08S", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
+                "traps",
+                "upper back"
+              ], instructions: [
+                "Stand with your feet shoulder-width apart and hold the band in front of your thighs with your palms facing down.",
+                "Keep your arms straight and lift the band up in front of you until your arms are parallel to the ground.",
+                "Pause for a moment at the top, then slowly lower the band back down to the starting position.",
+                "Repeat for the desired number of repetitions."
+              ]))
 }

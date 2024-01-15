@@ -14,7 +14,7 @@ struct SearchView: View {
     @State private var searchByTab = 0
     @State private var targetQuery: target = .none
     @State private var bodyPartQuery: bodyPart = .none
-    @State private var selectedExercise: Exercise?
+
     var service = DataService()
     
     var body: some View {
@@ -22,7 +22,7 @@ struct SearchView: View {
             HStack {
                 Text("Exercise Search")
                     .bold()
-                    .font(.system(size: 32))
+                    .font(.system(size: 40))
                 Spacer()
             }
             Picker("", selection: $searchByTab) {
@@ -35,7 +35,7 @@ struct SearchView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             
-            //Query by name
+            //Query by: Name
             if searchByTab == 0 {
                 VStack {
                     HStack {
@@ -49,7 +49,8 @@ struct SearchView: View {
                             }
                         }
                         .buttonStyle(.bordered)
-                        .tint(.black)
+                        .tint(.gray)
+                        
                     }
                 }
             //Query by Target
@@ -94,12 +95,10 @@ struct SearchView: View {
                     }
                 }
             }
-                        
-            
             if exercises.isEmpty && isLoading == false {
                 VStack {
                     Spacer()
-                    Text("Build your next workout!")
+                    Text("No Exercises Found")
                     Spacer()
                 }
                 
@@ -109,47 +108,11 @@ struct SearchView: View {
                     Spacer()
                 }
             } else {
-                List {
-                    ForEach(exercises) { e in
-                        Button(action: {
-                            selectedExercise = e
-                        }, label: {
-                            HStack {
-                                if let gifUrl = e.gifUrl {
-                                    AsyncImage(url: URL(string: gifUrl)){
-                                        image in
-                                        image
-                                            .resizable()
-                                            .frame(width: 75, height: 75)
-                                    } placeholder: {
-                                        ProgressView()
-                                            .frame(width: 50, height: 50)
-                                    }
-                                } else {
-                                    Image("list-placeholder-image")
-                                }
-                                VStack(alignment: .leading) {
-                                    Text(e.name?.capitalized ?? "No Name Found")
-                                        .font(Font.system(size: 15))
-                                        .bold()
-                                    Text(e.target?.capitalized ?? "No Target Found")
-                                        .font(Font.system(size: 16))
-                                        .foregroundStyle(Color(red: 67/255, green: 71/255, blue: 76/255))
-                                    Text(e.equipment?.capitalized ?? "No Equipment Found")
-                                        .font(Font.system(size: 16))
-                                        .foregroundStyle(Color(red: 67/255, green: 71/255, blue: 76/255))
-                                }
-                            }
-                        })
-                    }
+               ExerciseListView(exercises: $exercises)
                 }
-                .listStyle(.plain)
-            }
+            
         }
         .padding()
-        .sheet(item: $selectedExercise) { item in
-            ExerciseDetailView(exercise: item)
-        }
 
     }
 }
