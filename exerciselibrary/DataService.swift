@@ -31,7 +31,6 @@ struct DataService {
             let urlEncodedQuery = query.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             exerciseNameEndpoint = "https://exercisedb.p.rapidapi.com/exercises/name/\(urlEncodedQuery!)?limit=10"
             print(exerciseNameEndpoint)
-
         }
         
         //Body Part Query
