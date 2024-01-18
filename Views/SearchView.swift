@@ -108,7 +108,7 @@ struct SearchView: View {
                     Spacer()
                 }
             } else {
-               ExerciseListView(exercises: $exercises)
+                ExerciseListView(exercises: exercises)
                 }
             
         }

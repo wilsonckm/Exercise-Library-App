@@ -79,7 +79,7 @@ struct ExerciseDetailView: View {
 }
 
 #Preview {
-    ExerciseDetailView(exercise: Exercise(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/whon-vU7j3m08S", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
+    ExerciseDetailView(exercise: Exercise(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/GNnVlGCFnteI8v", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
                 "traps",
                 "upper back"
               ], instructions: [

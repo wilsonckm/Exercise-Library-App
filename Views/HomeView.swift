@@ -17,17 +17,24 @@ struct HomeView: View {
                         Text("Workouts")
                     }
                 }
+            ChatView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "bubble.left.fill")
+                        Text("Chat")
+                    }
+                }
             SearchView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "menucard")
+                        Image(systemName: "magnifyingglass")
                         Text("Search")
                     }
                 }
             ProfileView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "info.circle")
+                        Image(systemName: "person")
                         Text("Profile")
                     }
                 }
