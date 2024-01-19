@@ -28,7 +28,6 @@ struct OnboardingView: View {
             }
             
             
-            
             TabView(selection: $onboardingIndex ) {
                 //Onboarding page 1
                 OnboardingDetailView(bgColor: Color(red: 111/255, green: 154/255, blue: 189/255),
