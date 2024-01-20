@@ -17,13 +17,6 @@ struct HomeView: View {
                         Text("Workouts")
                     }
                 }
-            ChatView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "bubble.left.fill")
-                        Text("Chat")
-                    }
-                }
             SearchView()
                 .tabItem {
                     VStack {
