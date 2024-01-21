@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct ExerciseLibraryApp: App {
@@ -15,13 +16,13 @@ struct ExerciseLibraryApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .modelContainer(for: [Workouts.self, ExerciseLocal.self])
             //Will present modal of onboardingView if needsOnboarding is true.
                 .fullScreenCover(isPresented: $needsOnboarding) {
                     needsOnboarding = false
                 } content: {
                     OnboardingView()
                 }
-                
         }
     }
 }

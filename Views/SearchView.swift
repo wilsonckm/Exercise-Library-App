@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var exercises = [Exercise]()
+    @State private var exercises = [ExerciseAPI]()
     @State private var query = ""
     @State private var isLoading = false
     @State private var searchByTab = 0

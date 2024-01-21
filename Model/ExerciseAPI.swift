@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Exercise: Decodable, Identifiable {
+struct ExerciseAPI: Codable, Identifiable {
     var bodyPart: String?
     var equipment: String?
     var gifUrl: String?
@@ -16,6 +16,13 @@ struct Exercise: Decodable, Identifiable {
     var target: String?
     var secondaryMuscles: [String]?
     var instructions: [String]?
+    // Additional variables added to API model:
+//    var uniqueID: UUID = UUID()
+//    var sets: Int?
+//    var reps: Int?
+//    var rest: TimeInterval?
+//    var weight: Double?
+//    var notes: String?
 }
 
 enum bodyPart: String, CaseIterable, Identifiable {

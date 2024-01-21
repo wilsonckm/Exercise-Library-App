@@ -11,14 +11,14 @@ struct DataService {
     
 //    var query: String = ""
 
-    func exerciseSearch(query: String?, bodyPart: String?, target: String?) async -> [Exercise] {
+    func exerciseSearch(query: String?, bodyPart: String?, target: String?) async -> [ExerciseAPI] {
         // Gets API key as an optional string from the infoplist
         let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
         
         //Checks if API key exists. Guard is used here to handle missing/invalid api key.
         guard apiKey != nil else {
             //if no api key will return empty exercise array
-            return [Exercise]()
+            return [ExerciseAPI]()
         }
         
         
@@ -65,7 +65,7 @@ struct DataService {
                         //Decode the JSON data received from the API
                         let decoder = JSONDecoder()
                         do {
-                            let result = try decoder.decode([Exercise].self, from: data)
+                            let result = try decoder.decode([ExerciseAPI].self, from: data)
                             
                             //Make sure you return the result or it defaults to returning an empty array!
                             return result
@@ -87,7 +87,7 @@ struct DataService {
                 print("URLSession error: \(error)")
             }
         }
-        return [Exercise]()
+        return [ExerciseAPI]()
     }
     
 }

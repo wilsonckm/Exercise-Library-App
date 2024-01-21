@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExerciseDetailView: View {
     
-    var exercise: Exercise?
+    var exercise: ExerciseAPI?
     
     var body: some View {
         VStack {
@@ -79,7 +79,7 @@ struct ExerciseDetailView: View {
 }
 
 #Preview {
-    ExerciseDetailView(exercise: Exercise(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/GNnVlGCFnteI8v", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
+    ExerciseDetailView(exercise: ExerciseAPI(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/GNnVlGCFnteI8v", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
                 "traps",
                 "upper back"
               ], instructions: [

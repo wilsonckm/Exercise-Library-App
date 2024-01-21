@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ExerciseListView: View {
     
-    @State var exercises: [Exercise]
-    @State var selectedExercise: Exercise?
+    @State var exercises: [ExerciseAPI]
+    @State var selectedExercise: ExerciseAPI?
     
     var body: some View {
         List {
@@ -55,7 +55,7 @@ struct ExerciseListView: View {
 }
 
 #Preview {
-    ExerciseListView(exercises: ([Exercise(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/whon-vU7j3m08S", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
+    ExerciseListView(exercises: ([ExerciseAPI(bodyPart: "shoulders", equipment: "band", gifUrl: "https://v2.exercisedb.io/image/whon-vU7j3m08S", id: "0977", name: "band front lateral raise", target: "delts", secondaryMuscles: [
         "traps",
         "upper back"
       ], instructions: [
