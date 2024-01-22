@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WorkoutCardView: View {
+    
+    var workout: Workout
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0)
@@ -20,13 +23,13 @@ struct WorkoutCardView: View {
                     }
                     Spacer()
                     VStack (alignment: .trailing) {
-                        Text("WorkoutTitle")
+                        Text(workout.name)
                             .font(.headline)
                         VStack {
                             HStack {
-                                Text("WorkoutType |")
+                                Text("\(workout.workoutType) |")
                                     .font(.subheadline)
-                                Text("Exercise Type")
+                                Text("\(workout.intensityLevel)")
                                     .font(.subheadline)
                             }
                         }
@@ -38,6 +41,6 @@ struct WorkoutCardView: View {
     }
 }
 
-#Preview {
-    WorkoutCardView()
-}
+//#Preview {
+//    WorkoutCardView(workout: Workout(id: "123", name: "Leg Day", dateCreated: Date(), dateModified: Date(), duration: 3600, workoutType: "Strength", intensityLevel: "Hard", completed: true, exercises: [ExerciseLocal](), notes: "Wow"))
+//}
