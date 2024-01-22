@@ -12,7 +12,8 @@ struct WorkoutsView: View {
         VStack() {
             HStack {
                 Text("Workouts")
-                        .font(.title)
+                    .font(Font.custom("ChakraPetch-Regular", size: 25))
+//                        .font(.title)
                 Spacer()
 //                Image(systemName: "arrow.up.arrow.down")
                 Image(systemName: "plus")

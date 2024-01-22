@@ -11,26 +11,37 @@ struct OnboardingDetailViewTest: View {
     
     var headline: String
     var subtitle: String
+    var counter: Int
     var buttonAction: () -> Void
     
     var body: some View {
         ZStack {
             Color("Seashell")
-            VStack(alignment: .leading) {
-                Rectangle()
-                    .frame(width: 1)
-                    .padding(.leading, -150)
-            }
-            VStack (spacing: 0) {
-                
-                Spacer()
-                Spacer()
-                Text(headline)
-                    .bold()
-                    .font(.system(size: 22))
-                Text(subtitle)
-                    .padding(.bottom, 64)
-                    .padding(.horizontal, 16)
+            Rectangle()
+                .frame(width: 1)
+                .padding(.leading, -150)
+                .foregroundColor(.black)
+                .opacity(0.8)
+            VStack {
+                HStack {
+                    VStack (alignment: .leading, spacing: -20.0) {
+                        Text("0\(String(counter))")
+//                            .font(.onboardNumber)
+                            .font(.testFontNumber)
+//                            .font(.custom("CharkraPetch-Regular", size: 10))
+                        Text(headline)
+//                            .font(.onboardTitle)
+                            .font(.testFontTitle)
+                        Spacer()
+                        Text(subtitle)
+//                            .font(.onboardList)
+                            .font(.testFontTitle)
+                    }
+                    Spacer()
+                }
+                .padding(.leading, 55.0)
+                .padding(.top, 50.0)
+                .padding(.bottom, 25)
                 
                 Spacer()
                 
@@ -40,11 +51,12 @@ struct OnboardingDetailViewTest: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 14)
                             .padding(.horizontal, 10.0)
-                            .foregroundColor(.white)
+                            .foregroundColor(.clear)
                             .frame(height: 50)
                         Text("Continue")
                             .bold()
                             .foregroundStyle(.black)
+                            .font(Font.custom("ChakraPetch-Regular", size: 25))
                     }
                 }
                 .padding(.bottom, 118)
@@ -54,8 +66,9 @@ struct OnboardingDetailViewTest: View {
     }
 }
 
+
 #Preview {
-    OnboardingDetailViewTest(headline: "Welcome to Exercise Library", subtitle: "Track your exercises and search up new one!") {
+    OnboardingDetailViewTest(headline: "Track", subtitle: "Fitness Tracking, Made Simple", counter: 1) {
         //No action for preview
     }
 }

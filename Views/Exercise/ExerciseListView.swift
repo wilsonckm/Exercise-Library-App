@@ -52,6 +52,7 @@ struct ExerciseListView: View {
             ExerciseDetailView(exercise: item)
         }
     }
+    
 }
 
 #Preview {

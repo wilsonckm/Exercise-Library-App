@@ -9,7 +9,8 @@ import SwiftUI
 
 struct OnboardingWelcomeView: View {
     var body: some View {
-        Text("Welcome to RepOne")
+        Text("Welcome to RepOneBBB")
+//            .font(Font.custom("ChakraPetch-Regular", size: 25))
     }
 }
 

@@ -16,7 +16,10 @@ struct ExerciseLibraryApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+            //SwiftData setup
                 .modelContainer(for: [Workouts.self, ExerciseLocal.self])
+            //font
+//                .environment(\.font, Font.custom("ChakraPetch-Regular", size: 14))
             //Will present modal of onboardingView if needsOnboarding is true.
                 .fullScreenCover(isPresented: $needsOnboarding) {
                     needsOnboarding = false
