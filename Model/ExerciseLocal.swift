@@ -20,13 +20,13 @@ class ExerciseLocal: Identifiable {
     var instructions: [String]
     
     // User-specific properties
-    var sets: Int
-    var reps: Int
+    var sets: String
+    var reps: String
     var rest: TimeInterval
-    var weight: Double
+    var weight: String
     var notes: String
     
-    init(id: String, apiID: String, name: String, bodyPart: String, equipment: String, target: String, secondaryMuscles: [String], instructions: [String], sets: Int, reps: Int, rest: TimeInterval, weight: Double, notes: String) {
+    init(id: String, apiID: String, name: String, bodyPart: String, equipment: String, target: String, secondaryMuscles: [String], instructions: [String], sets: String, reps: String, rest: TimeInterval, weight: String, notes: String) {
         self.id = id
         self.apiID = apiID
         self.name = name

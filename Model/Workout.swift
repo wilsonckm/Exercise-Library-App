@@ -21,6 +21,7 @@ class Workout: Identifiable {
     var exercises: [ExerciseLocal]
     var notes: String
     
+
     init(id: String, name: String, dateCreated: Date, dateModified: Date, duration: TimeInterval, workoutType: String, intensityLevel: String, completed: Bool, exercises: [ExerciseLocal], notes: String) {
         self.id = id
         self.name = name

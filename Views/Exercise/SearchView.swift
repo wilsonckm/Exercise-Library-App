@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SearchView: View {
+    //API search
     @State private var exercises = [ExerciseAPI]()
     @State private var query = ""
     @State private var isLoading = false

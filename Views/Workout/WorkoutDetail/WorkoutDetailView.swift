@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct WorkoutDetailView: View {
+    
+    var workout: Workout
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(workout.name)
     }
 }
 
-#Preview {
-    WorkoutDetailView()
-}
+//#Preview {
+//    WorkoutDetailView(workout: Workout())
+//}

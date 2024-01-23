@@ -6,25 +6,34 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct WorkoutsView: View {
+    
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        VStack() {
-            HStack {
-                Text("Workouts")
+        NavigationStack(path: $path) {
+            VStack {
+                HStack {
+                    Text("Workouts")
                         .font(.title)
-                Spacer()
-//                Image(systemName: "arrow.up.arrow.down")
-                Image(systemName: "plus")
+                    Spacer()
+                    
+                    Button(action: {
+                        let newWorkout = Workout(id: UUID().uuidString, name: "", dateCreated: Date(), dateModified: Date(), duration: 000, workoutType: "", intensityLevel: "", completed: false, exercises: [ExerciseLocal](), notes: "")
+                        path.append(newWorkout)
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                }
+                .padding()
             }
-                WorkoutListView()
+            WorkoutListView(path: $path)
         }
-        .padding()
-        
-        
     }
 }
 
-#Preview {
-    WorkoutsView()
-}
+//#Preview {
+//    WorkoutsView()
+//}

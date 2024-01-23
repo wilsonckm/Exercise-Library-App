@@ -9,26 +9,33 @@ import SwiftUI
 import SwiftData
 
 struct WorkoutListView: View {
-    @Query var workout: [Workout]
+    @Environment(\.modelContext) var modelContext
+    @Query var workouts: [Workout]
+    @Binding var path: NavigationPath
     
     var body: some View {
-        if workout.isEmpty {
-            VStack {
-                Spacer()
-                Text("No workouts yet!")
-                Spacer()
-            }
-            
-        } else {
-            ScrollView {
-                ForEach(workout){ w in
-                    WorkoutCardView(workout: w)
+        List {
+            ForEach(workouts) { workout in
+                NavigationLink(value: workout) {
+                    WorkoutCardView(workout: workout)
+                        .navigationDestination(for: Workout.self) { workout in
+                            EditWorkoutView(path: $path, workout: workout)
+                        }
                 }
             }
+            .onDelete(perform: deleteWorkout)
         }
+        .listStyle(.plain)
+    }
+    
+    func deleteWorkout(at offsets: IndexSet) {
+        for offset in offsets {
+            let workout = workouts[offset]
+            modelContext.delete(workout)
+        }
+        
     }
 }
-
-#Preview {
-    WorkoutListView()
-}
+//#Preview {
+//    WorkoutListView()
+//}

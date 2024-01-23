@@ -21,7 +21,7 @@ struct HomeView: View {
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")
-                        Text("Search")
+                        Text("Library")
                     }
                 }
             ProfileView()
