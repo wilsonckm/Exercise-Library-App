@@ -10,11 +10,10 @@ import SwiftData
 
 struct EditWorkoutView: View {
     
-
     @Environment(\.modelContext) var modelContext
     @Binding var path: NavigationPath
-    
     @Bindable var workout: Workout
+    var isNewWorkout: Bool
     
     var body: some View {
         Form {
@@ -32,12 +31,12 @@ struct EditWorkoutView: View {
             addWorkout()
         }
     }
-        
-        func addWorkout() {
-                modelContext.insert(workout)
-                path.removeLast()
-            }
+    
+    func addWorkout() {
+        modelContext.insert(workout)
+        path.removeLast()
     }
+}
 
 //#Preview {
 //    EditWorkoutView()

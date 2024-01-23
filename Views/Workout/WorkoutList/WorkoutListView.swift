@@ -11,16 +11,12 @@ import SwiftData
 struct WorkoutListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var workouts: [Workout]
-    @Binding var path: NavigationPath
     
     var body: some View {
         List {
             ForEach(workouts) { workout in
                 NavigationLink(value: workout) {
                     WorkoutCardView(workout: workout)
-                        .navigationDestination(for: Workout.self) { workout in
-                            EditWorkoutView(path: $path, workout: workout)
-                        }
                 }
             }
             .onDelete(perform: deleteWorkout)
@@ -36,6 +32,6 @@ struct WorkoutListView: View {
         
     }
 }
-//#Preview {
-//    WorkoutListView()
-//}
+////#Preview {
+////    WorkoutListView()
+////}
