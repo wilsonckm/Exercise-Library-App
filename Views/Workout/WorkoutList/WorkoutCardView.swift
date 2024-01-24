@@ -18,8 +18,8 @@ struct WorkoutCardView: View {
             VStack {
                 HStack {
                     VStack {
-                        Text("12")
-                        Text("Mar")
+                        Text(DateFormatHelper.dayOfMonth(date: workout.dateCreated))
+                        Text(DateFormatHelper.abbreviateMonth(date: workout.dateCreated))
                     }
                     Spacer()
                     VStack (alignment: .trailing) {
