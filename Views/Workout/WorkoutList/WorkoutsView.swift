@@ -11,7 +11,7 @@ import SwiftData
 struct WorkoutsView: View {
     
     @State private var path = NavigationPath()
-    @Query var workouts: [Workout]
+//    @Query var workouts: [Workout]
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -30,11 +30,7 @@ struct WorkoutsView: View {
                 }
                 .padding()
             }
-            WorkoutListView()
-                .navigationDestination(for: Workout.self) { workout in
-                    EditWorkoutView(path: $path, workout: workout, isNewWorkout: false)
-                    
-                }
+            WorkoutListView(path: $path)
         }
     }
 }

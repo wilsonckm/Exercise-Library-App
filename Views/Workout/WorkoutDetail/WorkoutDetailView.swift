@@ -10,9 +10,13 @@ import SwiftUI
 struct WorkoutDetailView: View {
     
     var workout: Workout
+//    @Binding var path: NavigationPath
     
     var body: some View {
         Text(workout.name)
+        Text(workout.workoutType)
+        Text(workout.intensityLevel)
+        Text(workout.notes)
     }
 }
 

@@ -17,13 +17,14 @@ struct HomeView: View {
                         Text("Workouts")
                     }
                 }
-            SearchView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "magnifyingglass")
-                        Text("Library")
-                    }
-                }
+            //Move search view into Add exercises in edit workout view
+//            SearchView()
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "magnifyingglass")
+//                        Text("Library")
+//                    }
+//                }
             ProfileView()
                 .tabItem {
                     VStack {
