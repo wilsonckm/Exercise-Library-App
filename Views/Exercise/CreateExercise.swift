@@ -12,14 +12,15 @@ struct CreateExercise: View {
     var exercise: ExerciseLocal
     
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.modelContext) private var context
+    @Environment(\.modelContext) var modelContext
     
-    @State private var exerciseName: String = "Exercise Name"
-    @State private var sets: String = "3"
-    @State private var reps: String = "10"
+    //Form
+    @State private var exerciseName: String = ""
+    @State private var sets: String = ""
+    @State private var reps: String = ""
 //    @State private var rest: TimeInterval = 0
-    @State private var weight: String = "10"
-    @State private var notes: String = "Notes"
+    @State private var weight: String = ""
+    @State private var notes: String = ""
     
     var body: some View {
         VStack {
@@ -33,11 +34,27 @@ struct CreateExercise: View {
 //            TextField("Rest", text: $rest)
             TextField("Notes", text: $notes)
         }
+        .onAppear {
+            exerciseName = exercise.name
+            sets = exercise.sets
+            reps = exercise.reps
+            notes = exercise.notes
+        }
         
         Button("Save") {
-            exercise.name = exerciseName
+            createExercise()
         }
        
+    }
+    
+    func createExercise() {
+        exercise.name = exerciseName
+        exercise.sets = sets
+        exercise.reps = reps
+        exercise.weight = weight
+        exercise.notes = notes
+        modelContext.insert(exercise)
+        dismiss()
     }
 }
 

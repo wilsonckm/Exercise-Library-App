@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct WorkoutsView: View {
     
     @State private var path = NavigationPath()
-//    @Query var workouts: [Workout]
     
     var body: some View {
         NavigationStack(path: $path) {

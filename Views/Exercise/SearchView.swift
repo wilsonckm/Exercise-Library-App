@@ -16,13 +16,14 @@ struct SearchView: View {
     @State private var searchByTab = 0
     @State private var targetQuery: target = .none
     @State private var bodyPartQuery: bodyPart = .none
+    @State private var addExerciseSheet: Bool = false
 
     var service = DataService()
     
     var body: some View {
         VStack() {
             HStack {
-                Text("Exercise Search")
+                Text("Exercise Library")
                     .bold()
                     .font(.system(size: 40))
                 Spacer()
@@ -101,7 +102,17 @@ struct SearchView: View {
                 VStack {
                     Spacer()
                     Text("No Exercises Found")
+                    ExerciseLocalListView()
                     Spacer()
+                    HStack {
+                        Spacer()
+                        Button("Add Exercise") {
+                            addExerciseSheet = true
+                        }.sheet(isPresented: $addExerciseSheet) {
+                            let newExercise = ExerciseLocal(id: UUID().uuidString, apiID: "", name: "", bodyPart: "", equipment: "", target: "", secondaryMuscles: [], instructions: [], sets: "", reps: "", rest: 0.0, weight: "", notes: "")
+                            CreateExercise(exercise: newExercise)
+                        }
+                    }
                 }
                 
             } else if exercises.isEmpty && isLoading == true  {
