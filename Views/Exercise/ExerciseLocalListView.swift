@@ -11,7 +11,6 @@ import SwiftData
 struct ExerciseLocalListView: View {
     @Environment(\.modelContext) var modelContext
     @Query var exercises: [ExerciseLocal]
-    //    @State var selectedExercise: ExerciseLocal
     
     
     var body: some View {
