@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct CreateExercise: View {
+    
     var exercise: ExerciseLocal
     
     @Environment(\.dismiss) private var dismiss
