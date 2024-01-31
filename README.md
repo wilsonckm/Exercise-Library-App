@@ -1,6 +1,7 @@
 # Exercise-Library: Exercise App
 ## Description
 Currently under construction...
+
 The Exercise-Library App is designed to track exercises and search for new ones. This app performs a network query to search for exercises via categories, name, or body part. Additionally, the user is able to save workouts and exercises locally.
 
 ### Technologies Used
