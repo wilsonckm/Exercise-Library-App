@@ -15,9 +15,12 @@ The Exercise-Library App is designed to track exercises and search for new ones.
 - Network call to external API
 
 ## Installation
+
 - Clone the repo:
  ```git clone https://github.com/wilsonckm/Exercise-Library-App.git```
+
 - Open the project in Xcode.
+
 - Project must be run on device and not a simulator.
 
 ## Usage
@@ -25,6 +28,7 @@ The purpose of this app is to provide a digital tool to track exercises and work
 
 ### Main features are:
 -CRUD Operations in SwiftData
+
 -Dynamic Exercise Content: Access a vast library of exercises, updated regularly through network calls to a fitness API.
 
 ## Contributing
