@@ -7,7 +7,6 @@ The Exercise-Library App is designed to track exercises and search for new ones.
 ### Technologies Used
 - SwiftData Framework
 - Swift/SwiftUI
-- MVC Architecture 
 - Xcode
 
 ## Features
